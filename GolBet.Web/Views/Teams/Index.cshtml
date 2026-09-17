@@ -1,0 +1,30 @@
+﻿@* GolBet.Web/Views/Teams/Index.cshtml *@
+@model IEnumerable<GolBet.Services.DTOs.TeamDto>
+@{
+    ViewData["Title"] = "Equipos";
+}
+
+<h2 class="mb-4">⚽ Equipos</h2>
+
+<table class="table table-hover align-middle shadow-sm">
+    <thead class="table-success">
+        <tr>
+            <th>Escudo</th>
+            <th>Equipo</th>
+            <th>Ciudad</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var team in Model)
+    {
+        <tr>
+            <td>
+                <img src="@(team.CrestUrl ?? "https://placehold.co/60x60/e9ecef/6c757d?text=FC")"
+                     alt="@team.Name" width="60" height="60" />
+            </td>
+            <td class="fw-bold">@team.Name</td>
+            <td>@team.City</td>
+        </tr>
+    }
+    </tbody>
+</table>
